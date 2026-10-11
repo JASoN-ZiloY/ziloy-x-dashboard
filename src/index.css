@@ -1,0 +1,70 @@
+:root {
+  --bg: #020d18;
+  --bg2: #081a2d;
+  --panel: #071b2d;
+  --panel-2: #0a2034;
+  --card: #0d2238;
+  --soft: #112b46;
+  --line: rgba(143, 223, 255, 0.25);
+  --cyan: #76f8ff;
+  --cyan-2: #3fdcff;
+  --sky: #abebff;
+  --blue: #1d6bff;
+  --purple: #8e7cff;
+  --text: #ecf9ff;
+  --muted: #95b7d5;
+  --glass: rgba(255, 255, 255, 0.02);
+  --success: #6ef7b6;
+  --danger: #ff6672;
+  --shadow: 0 0 25px rgba(80, 200, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Inter, "Segoe UI", Tahoma, sans-serif;
+  background: radial-gradient(circle at 20% 20%, rgba(35, 138, 255, 0.25), transparent 30%),
+    radial-gradient(circle at 80% 15%, rgba(0, 255, 255, 0.16), transparent 20%),
+    linear-gradient(180deg, #020b16, #020f1d 35%, #020b14);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 18px 22px 30px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 1600px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(118, 248, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(118, 248, 255, 0.4);
+}
