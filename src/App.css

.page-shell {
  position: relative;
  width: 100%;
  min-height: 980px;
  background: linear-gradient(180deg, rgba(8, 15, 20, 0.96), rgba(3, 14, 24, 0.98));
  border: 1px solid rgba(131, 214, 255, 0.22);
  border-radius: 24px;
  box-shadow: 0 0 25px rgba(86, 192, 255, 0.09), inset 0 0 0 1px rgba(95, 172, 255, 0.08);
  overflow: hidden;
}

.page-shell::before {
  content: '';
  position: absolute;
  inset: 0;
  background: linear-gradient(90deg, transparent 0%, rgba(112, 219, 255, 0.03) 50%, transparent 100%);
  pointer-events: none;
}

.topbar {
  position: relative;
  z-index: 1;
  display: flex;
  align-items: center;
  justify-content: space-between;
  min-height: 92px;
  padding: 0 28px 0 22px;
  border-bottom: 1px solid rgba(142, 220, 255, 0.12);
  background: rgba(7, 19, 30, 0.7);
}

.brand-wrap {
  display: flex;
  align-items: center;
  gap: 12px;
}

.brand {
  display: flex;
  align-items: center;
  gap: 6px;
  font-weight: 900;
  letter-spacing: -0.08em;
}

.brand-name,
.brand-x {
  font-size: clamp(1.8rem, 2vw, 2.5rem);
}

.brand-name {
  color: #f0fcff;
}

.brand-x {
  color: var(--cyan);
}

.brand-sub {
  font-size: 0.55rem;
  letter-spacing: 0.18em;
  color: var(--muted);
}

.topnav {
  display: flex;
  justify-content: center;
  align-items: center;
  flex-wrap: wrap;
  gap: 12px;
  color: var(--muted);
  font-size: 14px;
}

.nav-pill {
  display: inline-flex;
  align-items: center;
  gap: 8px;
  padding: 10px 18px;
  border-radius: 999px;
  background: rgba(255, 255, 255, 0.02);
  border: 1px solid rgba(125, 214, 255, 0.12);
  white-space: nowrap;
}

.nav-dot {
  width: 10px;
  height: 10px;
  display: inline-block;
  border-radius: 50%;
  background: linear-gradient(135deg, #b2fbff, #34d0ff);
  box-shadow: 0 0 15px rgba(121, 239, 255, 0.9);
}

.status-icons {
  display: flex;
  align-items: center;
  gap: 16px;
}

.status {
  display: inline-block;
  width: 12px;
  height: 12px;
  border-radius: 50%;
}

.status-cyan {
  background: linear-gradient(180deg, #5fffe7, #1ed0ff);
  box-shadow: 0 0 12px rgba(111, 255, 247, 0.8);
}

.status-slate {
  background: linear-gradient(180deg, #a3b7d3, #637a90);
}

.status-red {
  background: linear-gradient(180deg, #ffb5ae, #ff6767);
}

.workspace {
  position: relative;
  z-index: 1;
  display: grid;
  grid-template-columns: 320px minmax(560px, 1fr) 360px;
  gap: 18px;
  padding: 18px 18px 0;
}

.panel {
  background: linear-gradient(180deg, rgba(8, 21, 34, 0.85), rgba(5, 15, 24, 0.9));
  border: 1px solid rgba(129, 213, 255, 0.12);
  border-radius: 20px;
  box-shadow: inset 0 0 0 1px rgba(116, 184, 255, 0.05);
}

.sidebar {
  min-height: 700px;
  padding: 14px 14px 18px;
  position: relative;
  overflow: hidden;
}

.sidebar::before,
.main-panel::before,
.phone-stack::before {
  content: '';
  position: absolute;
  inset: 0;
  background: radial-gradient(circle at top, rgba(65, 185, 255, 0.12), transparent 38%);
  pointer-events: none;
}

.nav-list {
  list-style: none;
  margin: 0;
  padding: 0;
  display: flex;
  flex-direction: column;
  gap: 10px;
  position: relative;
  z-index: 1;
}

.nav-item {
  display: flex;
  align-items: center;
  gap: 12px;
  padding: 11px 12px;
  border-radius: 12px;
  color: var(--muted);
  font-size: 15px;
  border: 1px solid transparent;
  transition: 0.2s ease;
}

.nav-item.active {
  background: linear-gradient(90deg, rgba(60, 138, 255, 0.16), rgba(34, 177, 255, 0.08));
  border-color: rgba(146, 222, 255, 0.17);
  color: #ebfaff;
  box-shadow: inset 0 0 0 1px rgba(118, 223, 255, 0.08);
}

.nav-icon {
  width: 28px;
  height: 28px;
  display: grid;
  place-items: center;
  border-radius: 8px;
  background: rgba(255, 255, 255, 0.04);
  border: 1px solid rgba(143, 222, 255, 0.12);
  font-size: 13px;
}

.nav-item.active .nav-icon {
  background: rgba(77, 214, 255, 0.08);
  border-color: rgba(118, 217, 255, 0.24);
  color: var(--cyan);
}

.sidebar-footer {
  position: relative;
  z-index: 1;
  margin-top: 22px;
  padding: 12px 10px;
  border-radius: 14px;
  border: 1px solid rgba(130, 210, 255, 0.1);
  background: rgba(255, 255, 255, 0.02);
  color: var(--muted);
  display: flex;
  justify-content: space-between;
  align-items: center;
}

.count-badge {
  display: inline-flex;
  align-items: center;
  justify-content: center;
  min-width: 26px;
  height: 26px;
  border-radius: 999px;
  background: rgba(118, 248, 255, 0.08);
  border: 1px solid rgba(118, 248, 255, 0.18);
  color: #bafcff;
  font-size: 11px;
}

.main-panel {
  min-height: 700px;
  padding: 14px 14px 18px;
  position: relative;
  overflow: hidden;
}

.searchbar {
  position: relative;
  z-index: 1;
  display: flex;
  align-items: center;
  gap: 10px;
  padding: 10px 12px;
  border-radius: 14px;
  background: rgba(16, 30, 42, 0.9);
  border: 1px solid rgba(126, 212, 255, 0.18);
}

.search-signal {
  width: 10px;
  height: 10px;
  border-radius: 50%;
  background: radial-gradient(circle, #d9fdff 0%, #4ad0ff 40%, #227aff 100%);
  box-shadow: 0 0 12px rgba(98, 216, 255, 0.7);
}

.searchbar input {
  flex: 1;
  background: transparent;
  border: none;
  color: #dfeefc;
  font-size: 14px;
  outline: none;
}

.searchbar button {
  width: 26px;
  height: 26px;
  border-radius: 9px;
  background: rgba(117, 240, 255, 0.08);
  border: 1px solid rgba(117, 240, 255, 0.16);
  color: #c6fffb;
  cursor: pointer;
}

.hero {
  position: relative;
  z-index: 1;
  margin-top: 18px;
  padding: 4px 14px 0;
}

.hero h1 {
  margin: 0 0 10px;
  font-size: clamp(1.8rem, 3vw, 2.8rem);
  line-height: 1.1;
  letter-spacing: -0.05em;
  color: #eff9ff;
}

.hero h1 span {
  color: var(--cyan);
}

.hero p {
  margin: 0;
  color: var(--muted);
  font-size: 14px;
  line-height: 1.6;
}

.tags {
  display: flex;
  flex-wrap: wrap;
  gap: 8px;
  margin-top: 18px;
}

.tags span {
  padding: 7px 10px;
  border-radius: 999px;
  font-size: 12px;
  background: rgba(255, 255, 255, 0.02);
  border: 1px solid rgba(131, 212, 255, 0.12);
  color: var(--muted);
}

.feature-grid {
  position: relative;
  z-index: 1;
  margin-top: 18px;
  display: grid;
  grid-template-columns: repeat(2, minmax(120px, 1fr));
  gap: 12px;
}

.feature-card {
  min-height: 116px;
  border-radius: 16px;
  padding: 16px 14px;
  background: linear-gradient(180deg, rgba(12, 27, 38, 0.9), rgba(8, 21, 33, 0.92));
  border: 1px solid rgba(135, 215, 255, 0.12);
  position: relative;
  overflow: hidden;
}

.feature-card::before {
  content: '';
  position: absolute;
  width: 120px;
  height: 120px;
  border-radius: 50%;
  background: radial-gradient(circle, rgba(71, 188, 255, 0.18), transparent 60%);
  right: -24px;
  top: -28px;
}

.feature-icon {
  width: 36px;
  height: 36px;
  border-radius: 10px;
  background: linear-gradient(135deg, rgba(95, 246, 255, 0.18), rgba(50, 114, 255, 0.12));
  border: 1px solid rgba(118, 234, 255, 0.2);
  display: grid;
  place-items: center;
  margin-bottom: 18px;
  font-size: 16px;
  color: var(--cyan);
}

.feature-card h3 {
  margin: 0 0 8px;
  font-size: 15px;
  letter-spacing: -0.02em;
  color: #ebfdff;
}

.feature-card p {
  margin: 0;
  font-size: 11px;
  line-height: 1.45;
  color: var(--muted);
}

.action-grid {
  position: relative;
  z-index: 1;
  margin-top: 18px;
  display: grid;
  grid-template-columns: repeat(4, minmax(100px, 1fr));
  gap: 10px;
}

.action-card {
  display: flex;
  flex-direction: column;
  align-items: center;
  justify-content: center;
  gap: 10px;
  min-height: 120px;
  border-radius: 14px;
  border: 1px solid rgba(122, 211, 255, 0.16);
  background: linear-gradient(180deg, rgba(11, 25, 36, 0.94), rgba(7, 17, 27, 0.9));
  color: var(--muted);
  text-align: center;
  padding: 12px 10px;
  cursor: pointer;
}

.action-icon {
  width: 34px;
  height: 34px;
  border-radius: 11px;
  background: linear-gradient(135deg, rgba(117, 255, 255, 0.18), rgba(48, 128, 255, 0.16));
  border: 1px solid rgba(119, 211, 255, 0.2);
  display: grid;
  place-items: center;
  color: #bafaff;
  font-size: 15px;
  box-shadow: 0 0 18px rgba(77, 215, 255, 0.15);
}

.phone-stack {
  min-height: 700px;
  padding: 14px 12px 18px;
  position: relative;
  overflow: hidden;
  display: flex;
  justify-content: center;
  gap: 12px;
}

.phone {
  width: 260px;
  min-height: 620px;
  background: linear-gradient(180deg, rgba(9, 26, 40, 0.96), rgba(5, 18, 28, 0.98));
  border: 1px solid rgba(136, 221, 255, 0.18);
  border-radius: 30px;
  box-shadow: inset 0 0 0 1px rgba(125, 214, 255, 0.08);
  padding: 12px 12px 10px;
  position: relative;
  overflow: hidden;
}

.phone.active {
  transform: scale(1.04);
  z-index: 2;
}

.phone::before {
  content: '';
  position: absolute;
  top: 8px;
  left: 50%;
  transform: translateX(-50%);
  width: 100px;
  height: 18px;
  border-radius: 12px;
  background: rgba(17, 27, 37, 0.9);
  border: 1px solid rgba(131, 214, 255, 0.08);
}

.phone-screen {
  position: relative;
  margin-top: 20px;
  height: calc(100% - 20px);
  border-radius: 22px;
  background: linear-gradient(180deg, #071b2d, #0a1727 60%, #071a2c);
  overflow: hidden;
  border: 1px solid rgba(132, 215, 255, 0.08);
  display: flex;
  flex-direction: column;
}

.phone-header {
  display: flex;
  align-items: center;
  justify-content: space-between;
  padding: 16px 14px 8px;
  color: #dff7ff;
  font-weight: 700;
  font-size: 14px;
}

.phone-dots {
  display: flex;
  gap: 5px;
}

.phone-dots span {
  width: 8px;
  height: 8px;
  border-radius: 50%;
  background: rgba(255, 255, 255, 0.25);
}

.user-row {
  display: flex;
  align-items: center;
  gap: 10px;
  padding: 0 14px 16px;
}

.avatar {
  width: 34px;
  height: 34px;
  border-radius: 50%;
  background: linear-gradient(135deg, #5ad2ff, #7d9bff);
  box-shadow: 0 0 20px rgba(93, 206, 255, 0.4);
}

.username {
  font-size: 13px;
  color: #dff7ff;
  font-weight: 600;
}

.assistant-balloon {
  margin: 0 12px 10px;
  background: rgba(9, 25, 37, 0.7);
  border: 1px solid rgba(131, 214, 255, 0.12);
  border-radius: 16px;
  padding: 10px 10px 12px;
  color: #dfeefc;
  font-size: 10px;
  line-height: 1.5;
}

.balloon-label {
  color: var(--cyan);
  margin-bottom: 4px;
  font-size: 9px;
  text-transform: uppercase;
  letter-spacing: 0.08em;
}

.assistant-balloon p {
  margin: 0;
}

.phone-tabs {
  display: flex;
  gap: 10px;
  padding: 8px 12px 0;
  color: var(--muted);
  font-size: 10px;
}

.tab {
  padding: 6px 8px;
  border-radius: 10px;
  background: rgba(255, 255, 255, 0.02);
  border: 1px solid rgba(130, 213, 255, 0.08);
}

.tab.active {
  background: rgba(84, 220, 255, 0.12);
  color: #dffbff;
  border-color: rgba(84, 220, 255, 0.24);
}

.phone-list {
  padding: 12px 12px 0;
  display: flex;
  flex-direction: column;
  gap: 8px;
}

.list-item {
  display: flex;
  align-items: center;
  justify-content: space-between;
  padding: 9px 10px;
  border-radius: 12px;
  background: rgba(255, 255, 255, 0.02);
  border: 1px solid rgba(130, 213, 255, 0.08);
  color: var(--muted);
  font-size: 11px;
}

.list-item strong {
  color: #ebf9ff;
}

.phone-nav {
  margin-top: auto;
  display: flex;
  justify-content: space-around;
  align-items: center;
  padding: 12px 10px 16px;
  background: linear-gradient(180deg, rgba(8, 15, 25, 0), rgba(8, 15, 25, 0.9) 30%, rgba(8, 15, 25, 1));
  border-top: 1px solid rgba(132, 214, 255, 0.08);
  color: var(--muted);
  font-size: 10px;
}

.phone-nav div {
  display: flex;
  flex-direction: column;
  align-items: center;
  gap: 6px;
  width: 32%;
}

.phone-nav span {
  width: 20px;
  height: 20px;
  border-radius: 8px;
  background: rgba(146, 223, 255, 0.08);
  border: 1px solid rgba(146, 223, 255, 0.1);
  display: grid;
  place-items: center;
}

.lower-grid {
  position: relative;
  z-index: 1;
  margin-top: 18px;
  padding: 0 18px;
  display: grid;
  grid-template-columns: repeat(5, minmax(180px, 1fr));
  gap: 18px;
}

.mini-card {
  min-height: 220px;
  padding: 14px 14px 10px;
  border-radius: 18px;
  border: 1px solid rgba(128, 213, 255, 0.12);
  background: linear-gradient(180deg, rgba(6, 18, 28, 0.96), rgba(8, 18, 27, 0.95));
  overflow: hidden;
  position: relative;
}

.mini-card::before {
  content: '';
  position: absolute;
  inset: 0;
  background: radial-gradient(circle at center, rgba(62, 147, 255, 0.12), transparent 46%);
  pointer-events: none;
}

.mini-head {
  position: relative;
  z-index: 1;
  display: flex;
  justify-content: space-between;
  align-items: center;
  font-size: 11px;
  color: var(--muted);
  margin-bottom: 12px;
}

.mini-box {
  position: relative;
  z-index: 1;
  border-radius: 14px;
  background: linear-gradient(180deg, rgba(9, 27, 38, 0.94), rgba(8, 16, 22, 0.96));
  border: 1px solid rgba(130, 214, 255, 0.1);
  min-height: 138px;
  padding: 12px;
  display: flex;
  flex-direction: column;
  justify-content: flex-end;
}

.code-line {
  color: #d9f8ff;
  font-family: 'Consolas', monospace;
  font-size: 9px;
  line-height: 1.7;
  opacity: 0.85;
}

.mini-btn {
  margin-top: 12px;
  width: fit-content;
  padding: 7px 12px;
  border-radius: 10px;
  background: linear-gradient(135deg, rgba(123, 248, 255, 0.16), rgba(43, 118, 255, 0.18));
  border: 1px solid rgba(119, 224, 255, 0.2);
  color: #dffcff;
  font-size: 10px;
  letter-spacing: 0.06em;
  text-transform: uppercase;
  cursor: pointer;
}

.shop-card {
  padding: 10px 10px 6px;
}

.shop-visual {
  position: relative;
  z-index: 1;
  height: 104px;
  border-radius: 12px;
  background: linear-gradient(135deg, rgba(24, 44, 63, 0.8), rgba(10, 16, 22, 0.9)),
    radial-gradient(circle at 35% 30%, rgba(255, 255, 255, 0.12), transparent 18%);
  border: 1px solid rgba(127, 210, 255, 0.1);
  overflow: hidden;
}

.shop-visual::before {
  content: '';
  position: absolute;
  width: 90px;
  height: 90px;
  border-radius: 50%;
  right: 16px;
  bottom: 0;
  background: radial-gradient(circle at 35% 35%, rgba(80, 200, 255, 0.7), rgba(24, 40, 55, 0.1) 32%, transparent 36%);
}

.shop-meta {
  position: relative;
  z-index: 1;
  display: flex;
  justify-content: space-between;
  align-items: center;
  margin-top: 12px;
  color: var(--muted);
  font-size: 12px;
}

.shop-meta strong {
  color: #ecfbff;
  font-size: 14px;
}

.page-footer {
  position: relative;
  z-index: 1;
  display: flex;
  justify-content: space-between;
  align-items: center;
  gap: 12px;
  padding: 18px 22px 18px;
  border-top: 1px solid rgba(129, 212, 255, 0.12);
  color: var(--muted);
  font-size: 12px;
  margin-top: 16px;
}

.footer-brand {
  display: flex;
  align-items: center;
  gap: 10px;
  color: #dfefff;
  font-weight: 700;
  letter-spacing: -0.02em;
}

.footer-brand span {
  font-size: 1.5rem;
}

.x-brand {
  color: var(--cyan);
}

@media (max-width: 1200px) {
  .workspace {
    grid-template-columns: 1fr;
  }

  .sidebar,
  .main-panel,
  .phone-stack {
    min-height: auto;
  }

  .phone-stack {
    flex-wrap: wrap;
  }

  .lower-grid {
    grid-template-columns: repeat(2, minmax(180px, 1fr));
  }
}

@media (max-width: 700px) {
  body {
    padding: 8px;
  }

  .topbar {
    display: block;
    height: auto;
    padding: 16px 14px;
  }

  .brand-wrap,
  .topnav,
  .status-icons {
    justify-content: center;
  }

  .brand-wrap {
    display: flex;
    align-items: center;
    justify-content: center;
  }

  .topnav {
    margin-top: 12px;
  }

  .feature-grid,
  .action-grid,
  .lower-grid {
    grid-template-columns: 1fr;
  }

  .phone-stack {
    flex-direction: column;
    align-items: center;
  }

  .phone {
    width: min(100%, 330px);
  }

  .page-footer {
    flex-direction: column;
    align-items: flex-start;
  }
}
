@@ -1,0 +1,295 @@
+import './App.css'
+
+const sidebarItems = [
+  { label: 'Home', icon: '⌂', active: true },
+  { label: 'AI Chat', icon: '✦' },
+  { label: 'Code Editor', icon: '⌘' },
+  { label: 'Projects', icon: '▣' },
+  { label: 'Templates', icon: '◫' },
+  { label: 'Cloud', icon: '☁' },
+  { label: 'Settings', icon: '⚙' },
+]
+
+const featureCards = [
+  {
+    title: 'AI Chat',
+    icon: '◰',
+    text: 'สร้างโค้ด อธิบายความคิด หรือปรับปรุงโปรเจกต์แบบคุยกับ AI ได้ตลอดเวลา',
+  },
+  {
+    title: 'Code Editor',
+    icon: '⌘',
+    text: 'เขียนโค้ดแบบ AI-integrated พร้อม auto-complete และ suggestion ที่ช่วยได้จริง',
+  },
+  {
+    title: 'Projects',
+    icon: '▣',
+    text: 'จัดการโปรเจ็กต์แบบเป็นทีม พร้อมประวัติการทำงานและการปรับปรุงโดย AI',
+  },
+  {
+    title: 'Preview',
+    icon: '◁',
+    text: 'ดูผลลัพธ์แบบ real-time ก่อน deploy เพื่อให้ประหยัดเวลาและลดข้อผิดพลาด',
+  },
+]
+
+const actionCards = [
+  'Create New',
+  'Use Template',
+  'Import',
+  'Deploy',
+]
+
+const phoneCards = [
+  {
+    title: 'ZILOY X',
+    accent: 'AI Assistant',
+    body: 'สวัสดีครับ ผมพร้อมช่วยคุณสร้างแอป Web หรือ mobile app ได้เลย พร้อมบอกเทมเพลต และโครงสร้างที่เหมาะกับธุรกิจของคุณ',
+    tabs: ['Home', 'Projects', 'AI Chat'],
+    stats: [
+      { label: 'AI Chat', value: '10' },
+      { label: 'Code Editor', value: '2' },
+      { label: 'Templates', value: '18' },
+    ],
+  },
+  {
+    title: 'ZILOY X',
+    accent: 'AI Assistant',
+    body: 'generate landing page / e-commerce / admin dashboard / mobile app. I can produce code + layout + structure for your product in one click.',
+    tabs: ['Code', 'AI', 'Preview'],
+    stats: [
+      { label: 'Layout', value: 'Ready' },
+      { label: 'Theme', value: 'Dark' },
+      { label: 'Build', value: 'Live' },
+    ],
+  },
+  {
+    title: 'ZILOY X',
+    accent: 'AI Chat',
+    body: "Let's create a modern UI for an e-commerce app with dark neon theme, product cards, smart assistant, and fast deployment flows.",
+    tabs: ['Chat', 'Code', 'Deploy'],
+    stats: [
+      { label: 'Prompt', value: '2' },
+      { label: 'Response', value: 'Live' },
+      { label: 'Stack', value: 'React' },
+    ],
+  },
+]
+
+const miniFeatures = [
+  {
+    label: 'AI Prompt',
+    lines: ['const app = "ZILOY X"', 'export default function UI() {', '  return <Dashboard />', '}'],
+    button: 'Generate',
+  },
+  {
+    label: 'Terminal',
+    lines: ['npm install', 'npm run dev', 'vite build', 'deploy ✅'],
+    button: 'Run',
+  },
+  {
+    label: 'AI Project',
+    lines: ['prompt: "build mobile app"', 'stack: React + Tailwind', 'theme: Dark Neon'],
+    button: 'Create',
+  },
+  {
+    label: 'AI Store',
+    type: 'shop',
+    button: 'View',
+  },
+  {
+    label: 'AI Design',
+    lines: ['components:', '- Layout', '- Sidebar', '- Chat panel'],
+    button: 'Visualize',
+  },
+]
+
+function App() {
+  return (
+    <div className="page-shell">
+      <header className="topbar">
+        <div className="brand-wrap">
+          <div className="brand">
+            <span className="brand-name">ZILOY</span>
+            <span className="brand-x">X</span>
+          </div>
+          <div className="brand-sub">AI CODING STUDIO</div>
+        </div>
+
+        <nav className="topnav" aria-label="Product navigation">
+          <div className="nav-pill">
+            <span className="nav-dot" />
+            Web
+          </div>
+          <div className="nav-pill">
+            <span className="nav-dot" />
+            iOS
+          </div>
+          <div className="nav-pill">
+            <span className="nav-dot" />
+            Android
+          </div>
+        </nav>
+
+        <div className="status-icons" aria-label="Status indicators">
+          <span className="status status-cyan" />
+          <span className="status status-slate" />
+          <span className="status status-red" />
+        </div>
+      </header>
+
+      <main className="workspace">
+        <aside className="sidebar panel">
+          <ul className="nav-list">
+            {sidebarItems.map(({ label, icon, active }) => (
+              <li key={label} className={`nav-item ${active ? 'active' : ''}`}>
+                <span className="nav-icon">{icon}</span>
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="sidebar-footer">
+            <span>Recent Projects</span>
+            <span className="count-badge">3</span>
+          </div>
+        </aside>
+
+        <section className="main-panel panel">
+          <div className="searchbar">
+            <span className="search-signal" />
+            <input type="text" value="Search projects, files, or AI..." readOnly />
+            <button type="button" aria-label="Search">
+              ⌕
+            </button>
+          </div>
+
+          <div className="hero">
+            <h1>
+              Welcome to <span>ZILOY X</span>
+              <br />
+              Your AI-Powered Coding Studio
+            </h1>
+            <p>
+              สร้างสรรค์และพัฒนาระบบด้วย AI สนับสนุนทุกขั้นตอนตั้งแต่คิดไอเดีย ไปจนถึงอัปโหลดระบบ
+            </p>
+
+            <div className="tags">
+              <span>สร้างเว็บ</span>
+              <span>AI</span>
+              <span>Web App</span>
+              <span>Responsive</span>
+              <span>Full-stack</span>
+            </div>
+          </div>
+
+          <div className="feature-grid">
+            {featureCards.map(({ title, icon, text }) => (
+              <article key={title} className="feature-card">
+                <div className="feature-icon">{icon}</div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="action-grid">
+            {actionCards.map((label, index) => (
+              <button key={label} type="button" className="action-card">
+                <span className="action-icon">{['✦', '▣', '⎇', '⇪'][index]}</span>
+                <span>{label}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <aside className="phone-stack panel">
+          {phoneCards.map(({ title, accent, body, tabs, stats }, index) => (
+            <div key={`${title}-${index}`} className={`phone ${index === 1 ? 'active' : ''}`}>
+              <div className="phone-screen">
+                <div className="phone-header">
+                  <span>{title}</span>
+                  <div className="phone-dots">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+
+                <div className="user-row">
+                  <div className="avatar" />
+                  <div className="username">Jason X</div>
+                </div>
+
+                <div className="assistant-balloon">
+                  <div className="balloon-label">{accent}</div>
+                  <p>{body}</p>
+                </div>
+
+                <div className="phone-tabs">
+                  {tabs.map((tab, tabIndex) => (
+                    <span key={tab} className={tabIndex === 0 ? 'tab active' : 'tab'}>{tab}</span>
+                  ))}
+                </div>
+
+                <div className="phone-list">
+                  {stats.map(({ label, value }) => (
+                    <div key={label} className="list-item">
+                      <span>{label}</span>
+                      <strong>{value}</strong>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="phone-nav">
+                  <div><span>⌂</span>Home</div>
+                  <div><span>✦</span>AI</div>
+                  <div><span>⚙</span>More</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </aside>
+      </main>
+
+      <section className="lower-grid">
+        {miniFeatures.map(({ label, lines, button, type }) => (
+          <article key={label} className={`mini-card ${type === 'shop' ? 'shop-card' : ''}`}>
+            <div className="mini-head">
+              <span>{label}</span>
+              <span>✕</span>
+            </div>
+
+            {type === 'shop' ? (
+              <>
+                <div className="shop-visual" />
+                <div className="shop-meta">
+                  <span>ชุดอุปกรณ์</span>
+                  <strong>฿3,490</strong>
+                </div>
+              </>
+            ) : (
+              <div className="mini-box">
+                {lines?.map((line) => (
+                  <div key={line} className="code-line">{line}</div>
+                ))}
+                <button type="button" className="mini-btn">{button}</button>
+              </div>
+            )}
+          </article>
+        ))}
+      </section>
+
+      <footer className="page-footer">
+        <div className="footer-brand">
+          <span>ZILOY</span>
+          <span className="x-brand">X</span>
+        </div>
+        <div className="footer-copy">AI Coding Studio • Build the Future Together</div>
+      </footer>
+    </div>
+  )
+}
+
+export default App
+""
